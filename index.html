@@ -1,114 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bethlehem B. | Junior Software Developer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beth's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & base */
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {font-family:Arial, sans-serif; line-height:1.6; color:#222; background:#f9fafb;}
-    a {color:inherit; text-decoration:none;}
-    h1,h2,h3 {margin-bottom:12px;}
-    section {padding:80px 20px; min-height:100vh;}
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
 
-    /* Navbar */
-    nav {position:fixed; top:0; left:0; width:100%; background:#0f62fe; color:white; display:flex; justify-content:center; gap:20px; padding:12px; z-index:1000;}
-    nav a {color:white; font-weight:600;}
-    nav a:hover {text-decoration:underline;}
+    body {
+      line-height: 1.6;
+      color: #fff;
+      background-color: #001f4d; /* Navy blue background */
+    }
+
+    /* Header / Navigation */
+    header {
+      background-color: #001f4d; /* navy */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .nav-links li a:hover {
+      color: #00aaff;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #00aaff;
+    }
 
     /* Sections */
-    #home {display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; background:#0f62fe; color:white;}
-    #home h1 {font-size:2.5rem;}
-    #home p {margin-top:12px; max-width:600px;}
-    .btn {margin-top:20px; display:inline-block; background:white; color:#0f62fe; padding:10px 18px; border-radius:6px; font-weight:600;}
-    .btn:hover {background:#f1f5f9;}
+    .section {
+      padding: 80px 20px;
+      min-height: 100vh;
+    }
 
-    #about, #skills, #projects, #contact {background:white;}
-    #skills ul {display:flex; flex-wrap:wrap; gap:10px; list-style:none;}
-    #skills li {background:#e5e7eb; padding:8px 14px; border-radius:20px;}
-    .project {background:#f3f4f6; padding:16px; border-radius:8px; margin-bottom:20px;}
-    .project h3 {margin-bottom:6px;}
+    .home-section {
+      background: #001f4d; /* navy */
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .home-section h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .home-section p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: #00aaff;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #0077cc;
+    }
+
+    /* About / Skills / Projects / Contact */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .skill {
+      background: #00aaff;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      font-weight: 500;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .project {
+      background: #003366; /* dark navy for contrast */
+      padding: 1.5rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    /* Contact */
+    .contact-section p {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .contact-section .btn {
+      display: block;
+      margin: 0 auto;
+    }
 
     /* Footer */
-    footer {background:#0f62fe; color:white; text-align:center; padding:20px;}
+    footer {
+      background: #001f4d;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+    }
 
-    /* Smooth scroll */
-    html {scroll-behavior:smooth;}
+    /* Links in projects */
+    .project h3 {
+      color: #00aaff;
+      margin-bottom: 0.5rem;
+    }
+
+    .project p {
+      color: #ffffff;
+    }
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <div class="logo">Beth B.</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Navbar -->
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <!-- Home -->
-  <section id="home">
-    <h1>Hi, I'm Bethlehem 👋</h1>
-    <p>Junior Software Developer passionate about building web applications with JavaScript, React, Node.js, and Python. I enjoy problem solving and creating user-friendly experiences.</p>
-    <a class="btn" href="#projects">View My Work</a>
-  </section>
-
-  <!-- About -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I recently graduated with a B.S. in Computer Science and a minor in Cybersecurity. I’ve worked on projects ranging from full-stack web apps to small freelance jobs, focusing on clean code and collaboration.</p>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>JavaScript</li>
-      <li>React</li>
-      <li>Node.js</li>
-      <li>Python</li>
-      <li>MongoDB</li>
-      <li>PostgreSQL</li>
-      <li>Git/GitHub</li>
-      <li>HTML & CSS</li>
-    </ul>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <div class="project">
-      <h3>Event App</h3>
-      <p>A full-stack web application built with React, Express, and MongoDB. I focused on the front-end, creating responsive layouts and integrating accessibility best practices.</p>
-      <a href="#" target="_blank">View Project</a>
-    </div>
-
-    <div class="project">
-      <h3>Church Website</h3>
-      <p>Developed a website for a global congregation using React and Node.js. Built the front-end UI and back-end content management features.</p>
-      <a href="#" target="_blank">View Project</a>
+  <!-- Home Section -->
+  <section id="home" class="section home-section">
+    <div class="content">
+      <h1>Hello, I'm Beth</h1>
+      <p>Junior Software Developer | Cybersecurity Enthusiast</p>
+      <a href="#projects" class="btn">View Projects</a>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:Perfect200699@gmail.com">Perfect200699@gmail.com</a></p>
-    <p>Phone: (301) 615-3520</p>
-    <p>GitHub: <a href="https://github.com/beth-alt" target="_blank">github.com/beth-alt</a></p>
-    <p>Portfolio: <a href="https://beth-alt.github.io/POR/" target="_blank">beth-alt.github.io/POR/</a></p>
+  <!-- About Section -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I am a recent Computer Science graduate with a passion for software development and cybersecurity. I enjoy building projects that solve real-world problems.</p>
+    </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Skills Section -->
+  <section id="skills" class="section skills-section">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill">HTML & CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Python</div>
+        <div class="skill">Cybersecurity</div>
+        <div class="skill">React</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section projects-section">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project">
+          <h3>Project 1</h3>
+          <p>Description of project 1.</p>
+        </div>
+        <div class="project">
+          <h3>Project 2</h3>
+          <p>Description of project 2.</p>
+        </div>
+        <div class="project">
+          <h3>Project 3</h3>
+          <p>Description of project 3.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p>Email: beth@example.com | Phone: (301) 615-3520</p>
+      <a href="mailto:beth@example.com" class="btn">Email Me</a>
+    </div>
+  </section>
+
   <footer>
-    <small>© <span id="year"></span> Bethlehem B. | Junior Software Developer</small>
+    <p>&copy; 2025 Beth B. All rights reserved.</p>
   </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
