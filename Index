@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bethlehem B. — Junior Software Developer</title>
+
+  <!-- Google Font (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent: #0f62fe;
+      --muted: #6b7280;
+      --bg: #f7fafc;
+      --card: #ffffff;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:24px;
+    }
+
+    .container{
+      max-width:900px;
+      margin:0 auto;
+      background:var(--card);
+      border-radius:12px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(15,23,42,0.08);
+    }
+
+    header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .name{
+      font-size:1.6rem;
+      font-weight:700;
+      letter-spacing:-0.2px;
+    }
+    .contact{
+      text-align:right;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+    .contact a{ color:var(--accent); text-decoration:none; }
+
+    .summary{ margin-top:18px; color:#374151; }
+
+    main{ display:grid; grid-template-columns: 1fr 320px; gap:24px; margin-top:22px; }
+    @media (max-width:850px){ main{ grid-template-columns: 1fr; } .contact{ text-align:left } }
+
+    section{ background:transparent; }
+
+    h2{
+      margin:0 0 12px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+      font-weight:600;
+      letter-spacing:0.2px;
+    }
+
+    .job{
+      margin-bottom:14px;
+    }
+    .job .title{ font-weight:600; }
+    .muted{ color:var(--muted); font-size:0.95rem; }
+
+    ul { margin:8px 0 16px 18px; padding:0; color:#374151; }
+    .skills { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+    .skill { background:#f1f5f9; color:#0f1724; padding:6px 10px; border-radius:999px; font-size:0.9rem; }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,1), rgba(248,250,252,1));
+      border-radius:10px;
+      padding:16px;
+      box-shadow: inset 0 0 0 1px rgba(15,23,42,0.03);
+    }
+
+    .project { margin-bottom:12px; }
+    .meta { font-size:0.9rem; color:var(--muted); }
+
+    footer{ margin-top:20px; text-align:center; color:var(--muted); font-size:0.9rem; }
+
+    /* Print styles */
+    @media print {
+      body{ background:white; padding:0; }
+      .container{ box-shadow:none; border-radius:0; padding:0; max-width:100%; }
+      .contact a{ color: black; text-decoration:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div>
+        <div class="name">Bethlehem B.</div>
+        <div class="muted">Junior Software Developer</div>
+      </div>
+
+      <div class="contact">
+        <div>📞 (301) 615-3520</div>
+        <div>✉️ <a href="mailto:Perfect200699@gmail.com">Perfect200699@gmail.com</a></div>
+        <div style="margin-top:6px;"><a href="Bethlehem_B_Junior_Software_Developer_Resume.pdf" target="_blank" rel="noopener">Download PDF</a> · <a href="https://github.com/your-github-username" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+    </header>
+
+    <p class="summary">
+      Motivated and detail-oriented junior software developer with strong full-stack experience building and maintaining web applications. Proficient in JavaScript, Python, React, Node.js, and MongoDB.
+      Comfortable working in Agile teams, performing unit testing, and delivering production-ready code. Seeking a junior developer role to contribute to product development and grow technical skills.
+    </p>
+
+    <main>
+      <!-- Left column: Experience / Projects -->
+      <section>
+        <article>
+          <h2>Experience</h2>
+
+          <div class="job">
+            <div class="title">Software Engineering Fellow — General Assembly (Remote)</div>
+            <div class="meta">April 2020 – July 2020</div>
+            <ul>
+              <li>Built full-stack applications using JavaScript, React, Node.js, and MongoDB; applied data structures and design patterns.</li>
+              <li>Contributed to the full software development lifecycle: design, development, testing, and documentation.</li>
+              <li>Performed unit testing and collaborated on code reviews to ensure integration quality.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="title">Independent Contractor — Software Developer (Freelance)</div>
+            <div class="meta">Freelance / Remote</div>
+            <ul>
+              <li>Delivered custom software solutions, translating client requirements into technical plans and timelines.</li>
+              <li>Wrote, tested, and debugged code; communicated progress and resolved issues to meet deadlines.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article>
+          <h2>Projects</h2>
+
+          <div class="project card">
+            <div style="font-weight:600">Event App — Front-End Developer</div>
+            <div class="meta">React · Express · MongoDB · SCSS · Bootstrap</div>
+            <p class="muted" style="margin-top:8px">Worked on UI and client-side logic to ensure responsiveness and accessibility; ran tests to prepare for deployment.</p>
+          </div>
+
+          <div class="project card">
+            <div style="font-weight:600">Church Website — Full-Stack Developer</div>
+            <div class="meta">React · Express · MongoDB · Bootstrap</div>
+            <p class="muted" style="margin-top:8px">Built front-end and back-end features for a global audience; collaborated with the client to meet project requirements and improve UX.</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- Right column: Skills, Education, Quick links -->
+      <aside>
+        <section class="card">
+          <h2>Technical Skills</h2>
+          <div class="skills" aria-hidden="true">
+            <span class="skill">JavaScript</span>
+            <span class="skill">Python</span>
+            <span class="skill">React</span>
+            <span class="skill">Node.js</span>
+            <span class="skill">HTML</span>
+            <span class="skill">CSS / SCSS</span>
+            <span class="skill">MongoDB</span>
+            <span class="skill">PostgreSQL</span>
+            <span class="skill">Git / GitHub</span>
+            <span class="skill">Unit testing</span>
+          </div>
+        </section>
+
+        <section style="margin-top:16px" class="card">
+          <h2>Education</h2>
+          <div style="margin-bottom:8px">
+            <div style="font-weight:600">University of Maryland Global Campus</div>
+            <div class="meta">B.S. Computer Science — Graduated 2025</div>
+          </div>
+
+          <div>
+            <div style="font-weight:600">General Assembly</div>
+            <div class="meta">Certificate: Software Engineering Immersive (Apr 2020 – Jul 2020)</div>
+          </div>
+        </section>
+
+        <section style="margin-top:16px" class="card">
+          <h2>Quick Links</h2>
+          <div style="font-size:0.95rem">
+            <div><strong>GitHub:</strong> <a href="https://github.com/your-github-username" target="_blank" rel="noopener">github.com/your-github-username</a></div>
+            <div><strong>Portfolio / Demo:</strong> <a href="https://your-portfolio.example" target="_blank" rel="noopener">your-portfolio.example</a></div>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <small> Bethlehem B. 2025</small>
+    </footer>
+  </div>
+</body>
+</html>
