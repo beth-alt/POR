@@ -1,305 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bethlehem B. — Portfolio</title>
-  <meta name="description" content="Portfolio and resume of Bethlehem B. — Junior Software Developer. Projects in React, Node.js, MongoDB. Contact: Perfect200699@gmail.com" />
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-
-  <!-- Styling: clean, modern, print-friendly -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bethlehem B. | Junior Software Developer</title>
   <style>
-    :root{
-      --accent:#0f62fe;
-      --bg:#f7fafc;
-      --card:#ffffff;
-      --muted:#6b7280;
-      --text:#0f1724;
-      --max-width:1100px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
-      padding:24px;
-      display:flex;
-      justify-content:center;
-      font-size:16px;
-    }
+    /* Reset & base */
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family:Arial, sans-serif; line-height:1.6; color:#222; background:#f9fafb;}
+    a {color:inherit; text-decoration:none;}
+    h1,h2,h3 {margin-bottom:12px;}
+    section {padding:80px 20px; min-height:100vh;}
 
-    .wrap{
-      width:100%;
-      max-width:var(--max-width);
-      background:var(--card);
-      border-radius:12px;
-      box-shadow:0 10px 30px rgba(15,23,42,0.08);
-      padding:28px;
-    }
+    /* Navbar */
+    nav {position:fixed; top:0; left:0; width:100%; background:#0f62fe; color:white; display:flex; justify-content:center; gap:20px; padding:12px; z-index:1000;}
+    nav a {color:white; font-weight:600;}
+    nav a:hover {text-decoration:underline;}
 
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-    .brand{
-      display:flex;
-      flex-direction:column;
-    }
-    .name{
-      font-size:1.6rem;
-      font-weight:700;
-      letter-spacing:-0.3px;
-    }
-    .subtitle{color:var(--muted); font-size:0.95rem}
+    /* Sections */
+    #home {display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; background:#0f62fe; color:white;}
+    #home h1 {font-size:2.5rem;}
+    #home p {margin-top:12px; max-width:600px;}
+    .btn {margin-top:20px; display:inline-block; background:white; color:#0f62fe; padding:10px 18px; border-radius:6px; font-weight:600;}
+    .btn:hover {background:#f1f5f9;}
 
-    nav{display:flex; gap:12px; align-items:center;}
-    .btn {
-      display:inline-block;
-      padding:8px 12px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:600;
-      font-size:0.95rem;
-    }
-    .btn-outline{
-      border:1px solid rgba(15,23,42,0.08);
-      color:var(--text);
-      background:transparent;
-    }
-    .btn-primary{
-      background:var(--accent);
-      color:white;
-      box-shadow:0 6px 18px rgba(15,98,254,0.12);
-    }
+    #about, #skills, #projects, #contact {background:white;}
+    #skills ul {display:flex; flex-wrap:wrap; gap:10px; list-style:none;}
+    #skills li {background:#e5e7eb; padding:8px 14px; border-radius:20px;}
+    .project {background:#f3f4f6; padding:16px; border-radius:8px; margin-bottom:20px;}
+    .project h3 {margin-bottom:6px;}
 
-    main{
-      display:grid;
-      grid-template-columns: 1fr 320px;
-      gap:24px;
-      margin-top:20px;
-    }
-    @media (max-width:980px){
-      main{ grid-template-columns: 1fr; }
-      nav{ width:100%; justify-content:flex-start; margin-top:8px; }
-    }
+    /* Footer */
+    footer {background:#0f62fe; color:white; text-align:center; padding:20px;}
 
-    /* Left column */
-    .hero{
-      padding:18px;
-      border-radius:10px;
-      background: linear-gradient(180deg, rgba(255,255,255,1), rgba(248,250,252,1));
-      box-shadow: inset 0 0 0 1px rgba(15,23,42,0.03);
-    }
-    .lead{ font-size:1.05rem; color:#111827; margin-top:10px }
-    .highlight{ color:var(--accent); font-weight:700 }
-
-    section{ margin-bottom:18px; }
-    h2{
-      margin:0 0 10px 0;
-      font-size:1.05rem;
-      font-weight:600;
-    }
-    .muted{ color:var(--muted); font-size:0.95rem; }
-
-    .job{ margin-bottom:12px; }
-    ul { margin:8px 0 16px 18px; padding:0; color:#374151; }
-
-    /* Right column (sidebar) */
-    aside .card{
-      background:#ffffff;
-      border-radius:10px;
-      padding:14px;
-      box-shadow: inset 0 0 0 1px rgba(15,23,42,0.03);
-      margin-bottom:12px;
-    }
-    .skills { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
-    .skill { background:#f1f5f9; padding:6px 10px; border-radius:999px; font-size:0.9rem; }
-
-    .projects-grid { display:grid; gap:12px; }
-    .project-card{
-      border-radius:10px; padding:12px; background:linear-gradient(180deg,#fff,#fbfdff);
-      box-shadow:0 6px 18px rgba(15,23,42,0.04);
-    }
-    .project-title{font-weight:600}
-    .project-meta{font-size:0.9rem;color:var(--muted);margin-top:6px}
-
-    footer{ margin-top:18px; text-align:center; color:var(--muted); font-size:0.9rem; }
-
-    /* small print (print friendly) */
-    @media print{
-      body{background:white;padding:0}
-      .wrap{box-shadow:none;border-radius:0;padding:0}
-      nav, .btn-primary{display:none}
-    }
-
-    /* simple responsive image placeholder */
-    .hero-img{
-      display:block;
-      width:100%;
-      max-height:220px;
-      object-fit:cover;
-      border-radius:8px;
-      margin-top:12px;
-      background:linear-gradient(135deg, rgba(15,98,254,0.08), rgba(15,98,254,0.02));
-      min-height:90px;
-    }
-
-    /* Contact form small */
-    .contact-form input, .contact-form textarea{
-      width:100%; padding:10px; border-radius:8px; border:1px solid #e6e9ef; margin-top:6px;
-      font-size:0.95rem;
-    }
-    .contact-row{ display:flex; gap:8px; }
-    .contact-row > * { flex:1; }
+    /* Smooth scroll */
+    html {scroll-behavior:smooth;}
   </style>
 </head>
 <body>
-  <div class="wrap" role="main">
-    <header>
-      <div class="brand">
-        <div class="name">Bethlehem B.</div>
-        <div class="subtitle">Junior Software Developer</div>
-      </div>
 
-      <nav aria-label="Primary">
-        <a class="btn btn-outline" href="#projects">Projects</a>
-        <a class="btn btn-outline" href="#about">About</a>
-        <a class="btn btn-outline" href="#contact">Contact</a>
-        <!-- resume PDF should be uploaded to the same folder; adjust name if different -->
-        <a class="btn btn-primary" href="Bethlehem_B_Junior_Software_Developer_Resume.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a>
-      </nav>
-    </header>
+  <!-- Navbar -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-    <main>
-      <!-- LEFT: content -->
-      <div>
-        <section class="hero" id="about" aria-labelledby="about-heading">
-          <h2 id="about-heading">About</h2>
-          <p class="lead">
-            I'm <strong>Bethlehem</strong>, a junior software developer with experience building full-stack web applications using <span class="highlight">React, Node.js, Python</span> and <span class="highlight">MongoDB</span>. I enjoy designing user-friendly interfaces and building reliable back-end services.
-          </p>
+  <!-- Home -->
+  <section id="home">
+    <h1>Hi, I'm Bethlehem 👋</h1>
+    <p>Junior Software Developer passionate about building web applications with JavaScript, React, Node.js, and Python. I enjoy problem solving and creating user-friendly experiences.</p>
+    <a class="btn" href="#projects">View My Work</a>
+  </section>
 
-          <div class="hero-img" aria-hidden="true"></div>
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I recently graduated with a B.S. in Computer Science and a minor in Cybersecurity. I’ve worked on projects ranging from full-stack web apps to small freelance jobs, focusing on clean code and collaboration.</p>
+  </section>
 
-          <p class="muted" style="margin-top:10px">
-            Available for full-time or contract roles. I enjoy collaborating in Agile teams, writing unit tests, and shipping code that solves real problems.
-          </p>
-        </section>
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Node.js</li>
+      <li>Python</li>
+      <li>MongoDB</li>
+      <li>PostgreSQL</li>
+      <li>Git/GitHub</li>
+      <li>HTML & CSS</li>
+    </ul>
+  </section>
 
-        <section aria-labelledby="experience-heading">
-          <h2 id="experience-heading">Experience</h2>
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
 
-          <div class="job">
-            <div style="font-weight:600">Software Engineering Fellow — General Assembly (Remote)</div>
-            <div class="muted">Apr 2020 – Jul 2020</div>
-            <ul>
-              <li>Built full-stack applications using JavaScript, React, Node.js and MongoDB, applying data structures and design patterns.</li>
-              <li>Contributed across the full SDLC: spec, implementation, testing, and documentation.</li>
-              <li>Collaborated in code reviews and used unit tests to ensure code quality.</li>
-            </ul>
-          </div>
+    <div class="project">
+      <h3>Event App</h3>
+      <p>A full-stack web application built with React, Express, and MongoDB. I focused on the front-end, creating responsive layouts and integrating accessibility best practices.</p>
+      <a href="#" target="_blank">View Project</a>
+    </div>
 
-          <div class="job">
-            <div style="font-weight:600">Independent Contractor — Software Developer</div>
-            <div class="muted">Freelance / Remote</div>
-            <ul>
-              <li>Translated client requirements into project plans, wrote and debugged code, and delivered production-ready features.</li>
-            </ul>
-          </div>
-        </section>
+    <div class="project">
+      <h3>Church Website</h3>
+      <p>Developed a website for a global congregation using React and Node.js. Built the front-end UI and back-end content management features.</p>
+      <a href="#" target="_blank">View Project</a>
+    </div>
+  </section>
 
-        <section id="projects" aria-labelledby="projects-heading">
-          <h2 id="projects-heading">Selected Projects</h2>
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:Perfect200699@gmail.com">Perfect200699@gmail.com</a></p>
+    <p>Phone: (301) 615-3520</p>
+    <p>GitHub: <a href="https://github.com/beth-alt" target="_blank">github.com/beth-alt</a></p>
+    <p>Portfolio: <a href="https://beth-alt.github.io/POR/" target="_blank">beth-alt.github.io/POR/</a></p>
+  </section>
 
-          <div class="projects-grid">
-            <article class="project-card" aria-labelledby="p1">
-              <div id="p1" class="project-title">Event App — Front-End Developer</div>
-              <div class="project-meta">React · Express · MongoDB · SCSS · Bootstrap</div>
-              <p class="muted" style="margin-top:8px">Worked on UI, responsiveness, accessibility, and prepared the app for deployment with automated tests.</p>
-              <p style="margin-top:8px"><a href="#" class="btn btn-outline" aria-label="View Event App repository or demo">View repo / demo</a></p>
-            </article>
+  <!-- Footer -->
+  <footer>
+    <small>© <span id="year"></span> Bethlehem B. | Junior Software Developer</small>
+  </footer>
 
-            <article class="project-card" aria-labelledby="p2">
-              <div id="p2" class="project-title">Church Website — Full-Stack Developer</div>
-              <div class="project-meta">React · Express · MongoDB · Bootstrap</div>
-              <p class="muted" style="margin-top:8px">Built front and back end to support a global congregation, with focus on easy navigation and content management.</p>
-              <p style="margin-top:8px"><a href="#" class="btn btn-outline">View repo / demo</a></p>
-            </article>
-          </div>
-        </section>
-
-        <section aria-labelledby="other-heading">
-          <h2 id="other-heading">Additional</h2>
-          <p class="muted">Technologies: JavaScript, Python, React, Node.js, MongoDB, PostgreSQL, Git. Comfortable with Agile workflows and unit testing.</p>
-        </section>
-      </div>
-
-      <!-- RIGHT: sidebar -->
-      <aside>
-        <div class="card" aria-labelledby="skills-heading">
-          <h2 id="skills-heading">Skills</h2>
-          <div class="skills" aria-hidden="true">
-            <span class="skill">JavaScript</span>
-            <span class="skill">React</span>
-            <span class="skill">Node.js</span>
-            <span class="skill">Python</span>
-            <span class="skill">MongoDB</span>
-            <span class="skill">PostgreSQL</span>
-            <span class="skill">HTML</span>
-            <span class="skill">CSS / SCSS</span>
-            <span class="skill">Git / GitHub</span>
-            <span class="skill">Unit testing</span>
-          </div>
-        </div>
-
-        <div class="card" aria-labelledby="education-heading">
-          <h2 id="education-heading">Education</h2>
-          <div style="font-weight:600">University of Maryland Global Campus</div>
-          <div class="muted">B.S. Computer Science — Graduated 2025</div>
-          <div style="margin-top:8px;font-weight:600">General Assembly</div>
-          <div class="muted">Certificate: Software Engineering Immersive (Apr 2020 – Jul 2020)</div>
-        </div>
-
-        <div class="card" id="contact">
-          <h2>Contact</h2>
-          <div class="muted" style="margin-bottom:8px">Email</div>
-          <div><a href="mailto:Perfect200699@gmail.com">Perfect200699@gmail.com</a></div>
-          <div class="muted" style="margin-top:10px">Phone</div>
-          <div>(301) 615-3520</div>
-
-          <div style="margin-top:12px" class="muted">Links</div>
-          <div style="margin-top:6px">
-            <div><strong>GitHub:</strong> <a href="https://github.com/beth-alt" target="_blank" rel="noopener">github.com/beth-alt</a></div>
-            <div><strong>Portfolio (this page):</strong> <a href="https://beth-alt.github.io/POR/" target="_blank" rel="noopener">beth-alt.github.io/POR/</a></div>
-          </div>
-
-          <div style="margin-top:12px">
-            <a class="btn btn-primary" href="Bethlehem_B_Junior_Software_Developer_Resume.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a>
-          </div>
-        </div>
-      </aside>
-    </main>
-
-    <footer>
-      <small class="muted">© <span id="year"></span> Bethlehem B. — Built with HTML & CSS • <a href="mailto:Perfect200699@gmail.com">Perfect200699@gmail.com</a></small>
-    </footer>
-  </div>
-
-  <!-- Minimal JS for small interactions -->
   <script>
-    // set current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // If you want to dynamically set links to real repos/demos, you can add data here:
-    // Example: document.querySelectorAll('.project-card a')[0].href = 'https://github.com/beth-alt/event-app';
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
