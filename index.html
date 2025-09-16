@@ -3,211 +3,303 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bethlehem B. — Junior Software Developer</title>
+  <title>Bethlehem B. — Portfolio</title>
+  <meta name="description" content="Portfolio and resume of Bethlehem B. — Junior Software Developer. Projects in React, Node.js, MongoDB. Contact: Perfect200699@gmail.com" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
-  <!-- Google Font (optional) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <!-- Styling: clean, modern, print-friendly -->
   <style>
     :root{
-      --accent: #0f62fe;
-      --muted: #6b7280;
-      --bg: #f7fafc;
-      --card: #ffffff;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --accent:#0f62fe;
+      --bg:#f7fafc;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --text:#0f1724;
+      --max-width:1100px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       background:var(--bg);
-      color:#111827;
+      color:var(--text);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
+      line-height:1.5;
       padding:24px;
+      display:flex;
+      justify-content:center;
+      font-size:16px;
     }
 
-    .container{
-      max-width:900px;
-      margin:0 auto;
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
       background:var(--card);
       border-radius:12px;
+      box-shadow:0 10px 30px rgba(15,23,42,0.08);
       padding:28px;
-      box-shadow:0 6px 22px rgba(15,23,42,0.08);
     }
 
     header{
       display:flex;
-      gap:16px;
-      align-items:center;
       justify-content:space-between;
+      align-items:center;
+      gap:16px;
       flex-wrap:wrap;
     }
-
+    .brand{
+      display:flex;
+      flex-direction:column;
+    }
     .name{
       font-size:1.6rem;
       font-weight:700;
-      letter-spacing:-0.2px;
+      letter-spacing:-0.3px;
     }
-    .contact{
-      text-align:right;
-      color:var(--muted);
+    .subtitle{color:var(--muted); font-size:0.95rem}
+
+    nav{display:flex; gap:12px; align-items:center;}
+    .btn {
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
       font-size:0.95rem;
     }
-    .contact a{ color:var(--accent); text-decoration:none; }
-
-    .summary{ margin-top:18px; color:#374151; }
-
-    main{ display:grid; grid-template-columns: 1fr 320px; gap:24px; margin-top:22px; }
-    @media (max-width:850px){ main{ grid-template-columns: 1fr; } .contact{ text-align:left } }
-
-    section{ background:transparent; }
-
-    h2{
-      margin:0 0 12px 0;
-      font-size:1.05rem;
-      color:#0f1724;
-      font-weight:600;
-      letter-spacing:0.2px;
+    .btn-outline{
+      border:1px solid rgba(15,23,42,0.08);
+      color:var(--text);
+      background:transparent;
+    }
+    .btn-primary{
+      background:var(--accent);
+      color:white;
+      box-shadow:0 6px 18px rgba(15,98,254,0.12);
     }
 
-    .job{
-      margin-bottom:14px;
+    main{
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:24px;
+      margin-top:20px;
     }
-    .job .title{ font-weight:600; }
-    .muted{ color:var(--muted); font-size:0.95rem; }
+    @media (max-width:980px){
+      main{ grid-template-columns: 1fr; }
+      nav{ width:100%; justify-content:flex-start; margin-top:8px; }
+    }
 
-    ul { margin:8px 0 16px 18px; padding:0; color:#374151; }
-    .skills { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
-    .skill { background:#f1f5f9; color:#0f1724; padding:6px 10px; border-radius:999px; font-size:0.9rem; }
-
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,1), rgba(248,250,252,1));
+    /* Left column */
+    .hero{
+      padding:18px;
       border-radius:10px;
-      padding:16px;
+      background: linear-gradient(180deg, rgba(255,255,255,1), rgba(248,250,252,1));
       box-shadow: inset 0 0 0 1px rgba(15,23,42,0.03);
     }
+    .lead{ font-size:1.05rem; color:#111827; margin-top:10px }
+    .highlight{ color:var(--accent); font-weight:700 }
 
-    .project { margin-bottom:12px; }
-    .meta { font-size:0.9rem; color:var(--muted); }
-
-    footer{ margin-top:20px; text-align:center; color:var(--muted); font-size:0.9rem; }
-
-    /* Print styles */
-    @media print {
-      body{ background:white; padding:0; }
-      .container{ box-shadow:none; border-radius:0; padding:0; max-width:100%; }
-      .contact a{ color: black; text-decoration:none; }
+    section{ margin-bottom:18px; }
+    h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      font-weight:600;
     }
+    .muted{ color:var(--muted); font-size:0.95rem; }
+
+    .job{ margin-bottom:12px; }
+    ul { margin:8px 0 16px 18px; padding:0; color:#374151; }
+
+    /* Right column (sidebar) */
+    aside .card{
+      background:#ffffff;
+      border-radius:10px;
+      padding:14px;
+      box-shadow: inset 0 0 0 1px rgba(15,23,42,0.03);
+      margin-bottom:12px;
+    }
+    .skills { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+    .skill { background:#f1f5f9; padding:6px 10px; border-radius:999px; font-size:0.9rem; }
+
+    .projects-grid { display:grid; gap:12px; }
+    .project-card{
+      border-radius:10px; padding:12px; background:linear-gradient(180deg,#fff,#fbfdff);
+      box-shadow:0 6px 18px rgba(15,23,42,0.04);
+    }
+    .project-title{font-weight:600}
+    .project-meta{font-size:0.9rem;color:var(--muted);margin-top:6px}
+
+    footer{ margin-top:18px; text-align:center; color:var(--muted); font-size:0.9rem; }
+
+    /* small print (print friendly) */
+    @media print{
+      body{background:white;padding:0}
+      .wrap{box-shadow:none;border-radius:0;padding:0}
+      nav, .btn-primary{display:none}
+    }
+
+    /* simple responsive image placeholder */
+    .hero-img{
+      display:block;
+      width:100%;
+      max-height:220px;
+      object-fit:cover;
+      border-radius:8px;
+      margin-top:12px;
+      background:linear-gradient(135deg, rgba(15,98,254,0.08), rgba(15,98,254,0.02));
+      min-height:90px;
+    }
+
+    /* Contact form small */
+    .contact-form input, .contact-form textarea{
+      width:100%; padding:10px; border-radius:8px; border:1px solid #e6e9ef; margin-top:6px;
+      font-size:0.95rem;
+    }
+    .contact-row{ display:flex; gap:8px; }
+    .contact-row > * { flex:1; }
   </style>
 </head>
 <body>
-  <div class="container" role="main">
+  <div class="wrap" role="main">
     <header>
-      <div>
+      <div class="brand">
         <div class="name">Bethlehem B.</div>
-        <div class="muted">Junior Software Developer</div>
+        <div class="subtitle">Junior Software Developer</div>
       </div>
 
-      <div class="contact">
-        <div>📞 (301) 615-3520</div>
-        <div>✉️ <a href="mailto:Perfect200699@gmail.com">Perfect200699@gmail.com</a></div>
-        <div style="margin-top:6px;"><a href="Bethlehem_B_Junior_Software_Developer_Resume.pdf" target="_blank" rel="noopener">Download PDF</a> · <a href="https://github.com/your-github-username" target="_blank" rel="noopener">GitHub</a></div>
-      </div>
+      <nav aria-label="Primary">
+        <a class="btn btn-outline" href="#projects">Projects</a>
+        <a class="btn btn-outline" href="#about">About</a>
+        <a class="btn btn-outline" href="#contact">Contact</a>
+        <!-- resume PDF should be uploaded to the same folder; adjust name if different -->
+        <a class="btn btn-primary" href="Bethlehem_B_Junior_Software_Developer_Resume.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a>
+      </nav>
     </header>
 
-    <p class="summary">
-      Motivated and detail-oriented junior software developer with strong full-stack experience building and maintaining web applications. Proficient in JavaScript, Python, React, Node.js, and MongoDB.
-      Comfortable working in Agile teams, performing unit testing, and delivering production-ready code. Seeking a junior developer role to contribute to product development and grow technical skills.
-    </p>
-
     <main>
-      <!-- Left column: Experience / Projects -->
-      <section>
-        <article>
-          <h2>Experience</h2>
+      <!-- LEFT: content -->
+      <div>
+        <section class="hero" id="about" aria-labelledby="about-heading">
+          <h2 id="about-heading">About</h2>
+          <p class="lead">
+            I'm <strong>Bethlehem</strong>, a junior software developer with experience building full-stack web applications using <span class="highlight">React, Node.js, Python</span> and <span class="highlight">MongoDB</span>. I enjoy designing user-friendly interfaces and building reliable back-end services.
+          </p>
+
+          <div class="hero-img" aria-hidden="true"></div>
+
+          <p class="muted" style="margin-top:10px">
+            Available for full-time or contract roles. I enjoy collaborating in Agile teams, writing unit tests, and shipping code that solves real problems.
+          </p>
+        </section>
+
+        <section aria-labelledby="experience-heading">
+          <h2 id="experience-heading">Experience</h2>
 
           <div class="job">
-            <div class="title">Software Engineering Fellow — General Assembly (Remote)</div>
-            <div class="meta">April 2020 – July 2020</div>
+            <div style="font-weight:600">Software Engineering Fellow — General Assembly (Remote)</div>
+            <div class="muted">Apr 2020 – Jul 2020</div>
             <ul>
-              <li>Built full-stack applications using JavaScript, React, Node.js, and MongoDB; applied data structures and design patterns.</li>
-              <li>Contributed to the full software development lifecycle: design, development, testing, and documentation.</li>
-              <li>Performed unit testing and collaborated on code reviews to ensure integration quality.</li>
+              <li>Built full-stack applications using JavaScript, React, Node.js and MongoDB, applying data structures and design patterns.</li>
+              <li>Contributed across the full SDLC: spec, implementation, testing, and documentation.</li>
+              <li>Collaborated in code reviews and used unit tests to ensure code quality.</li>
             </ul>
           </div>
 
           <div class="job">
-            <div class="title">Independent Contractor — Software Developer (Freelance)</div>
-            <div class="meta">Freelance / Remote</div>
+            <div style="font-weight:600">Independent Contractor — Software Developer</div>
+            <div class="muted">Freelance / Remote</div>
             <ul>
-              <li>Delivered custom software solutions, translating client requirements into technical plans and timelines.</li>
-              <li>Wrote, tested, and debugged code; communicated progress and resolved issues to meet deadlines.</li>
+              <li>Translated client requirements into project plans, wrote and debugged code, and delivered production-ready features.</li>
             </ul>
           </div>
-        </article>
+        </section>
 
-        <article>
-          <h2>Projects</h2>
+        <section id="projects" aria-labelledby="projects-heading">
+          <h2 id="projects-heading">Selected Projects</h2>
 
-          <div class="project card">
-            <div style="font-weight:600">Event App — Front-End Developer</div>
-            <div class="meta">React · Express · MongoDB · SCSS · Bootstrap</div>
-            <p class="muted" style="margin-top:8px">Worked on UI and client-side logic to ensure responsiveness and accessibility; ran tests to prepare for deployment.</p>
+          <div class="projects-grid">
+            <article class="project-card" aria-labelledby="p1">
+              <div id="p1" class="project-title">Event App — Front-End Developer</div>
+              <div class="project-meta">React · Express · MongoDB · SCSS · Bootstrap</div>
+              <p class="muted" style="margin-top:8px">Worked on UI, responsiveness, accessibility, and prepared the app for deployment with automated tests.</p>
+              <p style="margin-top:8px"><a href="#" class="btn btn-outline" aria-label="View Event App repository or demo">View repo / demo</a></p>
+            </article>
+
+            <article class="project-card" aria-labelledby="p2">
+              <div id="p2" class="project-title">Church Website — Full-Stack Developer</div>
+              <div class="project-meta">React · Express · MongoDB · Bootstrap</div>
+              <p class="muted" style="margin-top:8px">Built front and back end to support a global congregation, with focus on easy navigation and content management.</p>
+              <p style="margin-top:8px"><a href="#" class="btn btn-outline">View repo / demo</a></p>
+            </article>
           </div>
+        </section>
 
-          <div class="project card">
-            <div style="font-weight:600">Church Website — Full-Stack Developer</div>
-            <div class="meta">React · Express · MongoDB · Bootstrap</div>
-            <p class="muted" style="margin-top:8px">Built front-end and back-end features for a global audience; collaborated with the client to meet project requirements and improve UX.</p>
-          </div>
-        </article>
-      </section>
+        <section aria-labelledby="other-heading">
+          <h2 id="other-heading">Additional</h2>
+          <p class="muted">Technologies: JavaScript, Python, React, Node.js, MongoDB, PostgreSQL, Git. Comfortable with Agile workflows and unit testing.</p>
+        </section>
+      </div>
 
-      <!-- Right column: Skills, Education, Quick links -->
+      <!-- RIGHT: sidebar -->
       <aside>
-        <section class="card">
-          <h2>Technical Skills</h2>
+        <div class="card" aria-labelledby="skills-heading">
+          <h2 id="skills-heading">Skills</h2>
           <div class="skills" aria-hidden="true">
             <span class="skill">JavaScript</span>
-            <span class="skill">Python</span>
             <span class="skill">React</span>
             <span class="skill">Node.js</span>
-            <span class="skill">HTML</span>
-            <span class="skill">CSS / SCSS</span>
+            <span class="skill">Python</span>
             <span class="skill">MongoDB</span>
             <span class="skill">PostgreSQL</span>
+            <span class="skill">HTML</span>
+            <span class="skill">CSS / SCSS</span>
             <span class="skill">Git / GitHub</span>
             <span class="skill">Unit testing</span>
           </div>
-        </section>
+        </div>
 
-        <section style="margin-top:16px" class="card">
-          <h2>Education</h2>
-          <div style="margin-bottom:8px">
-            <div style="font-weight:600">University of Maryland Global Campus</div>
-            <div class="meta">B.S. Computer Science — Graduated 2025</div>
+        <div class="card" aria-labelledby="education-heading">
+          <h2 id="education-heading">Education</h2>
+          <div style="font-weight:600">University of Maryland Global Campus</div>
+          <div class="muted">B.S. Computer Science — Graduated 2025</div>
+          <div style="margin-top:8px;font-weight:600">General Assembly</div>
+          <div class="muted">Certificate: Software Engineering Immersive (Apr 2020 – Jul 2020)</div>
+        </div>
+
+        <div class="card" id="contact">
+          <h2>Contact</h2>
+          <div class="muted" style="margin-bottom:8px">Email</div>
+          <div><a href="mailto:Perfect200699@gmail.com">Perfect200699@gmail.com</a></div>
+          <div class="muted" style="margin-top:10px">Phone</div>
+          <div>(301) 615-3520</div>
+
+          <div style="margin-top:12px" class="muted">Links</div>
+          <div style="margin-top:6px">
+            <div><strong>GitHub:</strong> <a href="https://github.com/beth-alt" target="_blank" rel="noopener">github.com/beth-alt</a></div>
+            <div><strong>Portfolio (this page):</strong> <a href="https://beth-alt.github.io/POR/" target="_blank" rel="noopener">beth-alt.github.io/POR/</a></div>
           </div>
 
-          <div>
-            <div style="font-weight:600">General Assembly</div>
-            <div class="meta">Certificate: Software Engineering Immersive (Apr 2020 – Jul 2020)</div>
+          <div style="margin-top:12px">
+            <a class="btn btn-primary" href="Bethlehem_B_Junior_Software_Developer_Resume.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a>
           </div>
-        </section>
-
-        <section style="margin-top:16px" class="card">
-          <h2>Quick Links</h2>
-          <div style="font-size:0.95rem">
-            <div><strong>GitHub:</strong> <a href="https://github.com/your-github-username" target="_blank" rel="noopener">github.com/your-github-username</a></div>
-            <div><strong>Portfolio / Demo:</strong> <a href="https://your-portfolio.example" target="_blank" rel="noopener">your-portfolio.example</a></div>
-          </div>
-        </section>
+        </div>
       </aside>
     </main>
 
     <footer>
-      <small> Bethlehem B. 2025</small>
+      <small class="muted">© <span id="year"></span> Bethlehem B. — Built with HTML & CSS • <a href="mailto:Perfect200699@gmail.com">Perfect200699@gmail.com</a></small>
     </footer>
   </div>
+
+  <!-- Minimal JS for small interactions -->
+  <script>
+    // set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // If you want to dynamically set links to real repos/demos, you can add data here:
+    // Example: document.querySelectorAll('.project-card a')[0].href = 'https://github.com/beth-alt/event-app';
+  </script>
 </body>
 </html>
